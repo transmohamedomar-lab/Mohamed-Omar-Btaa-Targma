@@ -265,64 +265,27 @@
             </div>
         </section>
 
-        <section id="podcast" class="py-32 px-6 max-w-5xl mx-auto text-center">
-    <style>
-        .podcast-container {
-            background: linear-gradient(145deg, rgba(255, 0, 0, 0.03) 0%, rgba(15, 23, 42, 1) 100%);
-            border: 1px solid rgba(255, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            border-radius: 50px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-        .yt-bg-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 20rem;
-            color: rgba(255, 0, 0, 0.02);
-            z-index: 0;
-            pointer-events: none;
-        }
-        .yt-pulse-icon {
-            animation: pulse-red 2s infinite;
-        }
-        @keyframes pulse-red {
-            0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4); }
-            70% { box-shadow: 0 0 0 20px rgba(255, 0, 0, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
-        }
-    </style>
-
-    <div class="podcast-container p-16 md:p-24 relative">
-        <i class="fab fa-youtube yt-bg-icon"></i>
-        
-        <div class="relative z-10">
-            <div class="w-24 h-24 bg-red-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl yt-pulse-icon">
-                <i class="fas fa-play text-4xl text-white"></i>
-            </div>
-            
-            <h2 class="text-5xl md:text-7xl font-black mb-6 italic text-white leading-tight">
-                بودكاست <span class="text-red-600">بتاع ترجمة</span>
-            </h2>
-            
-            <p class="text-2xl md:text-3xl font-bold text-gray-400 uppercase tracking-[8px] mb-8">
-                Coming Soon | قريباً
-            </p>
-            
-            <div class="mt-8 flex justify-center gap-3">
-                <span class="w-3 h-3 bg-red-600 rounded-full animate-bounce"></span>
-                <span class="w-3 h-3 bg-red-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></span>
-                <span class="w-3 h-3 bg-red-600 rounded-full animate-bounce" style="animation-delay: 0.4s"></span>
-            </div>
-
-            <p class="mt-12 text-gray-500 italic max-w-xl mx-auto font-bold leading-relaxed">
-                استعد لتجربة صوتية تأخذك لخبايا سوق العمل وأسرار النجاح في عالم الترجمة واللغات.
-            </p>
-        </div>
-    </div>
-</section>
+         <section id="podcast" class="py-32 px-6 max-w-7xl mx-auto relative">
+            <div class="absolute inset-0 bg-yellow-400/5 blur-[120px] rounded-full -z-10"></div>
+            <div class="podcast-glass p-12 md:p-24 rounded-[50px] text-center backdrop-blur-xl border border-white/5 relative overflow-hidden group">
+                <div class="inline-block mb-8 p-6 bg-yellow-400/10 rounded-full group-hover:scale-110 transition-transform duration-500">
+                    <i class="fas fa-microphone-alt text-yellow-400 text-5xl"></i>
+                </div>
+                <h2 class="text-5xl md:text-7xl font-black mb-6 italic text-white leading-tight">
+                    بودكاست <span class="text-yellow-400">بتاع ترجمة </span>
+                </h2>
+                <div class="text-2xl md:text-3xl font-bold text-yellow-400/80 animate-pulse uppercase tracking-[8px] mb-8">
+                    قريباً.. Coming Soon
+                </div>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed mb-12">
+                    استعد لتجربة صوتية مختلفة تماماً.. هنحكي فيها عن خبايا سوق العمل، تجارب حياتية، وقصص نجاح بدأت من الصفر. متبعدش!
+                </p>
+                <a href="https://www.youtube.com/@%D8%A8%D8%AA%D8%A7%D8%B9_%D8%AA%D8%B1%D8%AC%D9%85%D8%A9" target="_blank" class="inline-flex items-center gap-3 bg-white/5 border border-white/10 text-white px-8 py-4 rounded-2xl font-bold hover:bg-red-600 transition-all group shadow-xl">
+                    <i class="fab fa-youtube text-red-500 group-hover:text-white text-2xl"></i>
+                    تابع التحديثات على يوتيوب
+                </a>
+            </div>
+        </section>
     </main>
 
     <footer class="py-20 border-t border-white/5 bg-slate-950">
