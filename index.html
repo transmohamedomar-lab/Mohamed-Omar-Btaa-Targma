@@ -26,6 +26,7 @@
         #cursor-dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; position: fixed; pointer-events: none; z-index: 10000; transform: translate(-50%, -50%); }
         #cursor-blur { width: 50px; height: 50px; border: 2px solid rgba(250, 204, 21, 0.3); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: transform 0.2s ease-out; }
 
+        /* الشريط العلوي */
         .nav-fixed {
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             background: transparent;
@@ -37,10 +38,12 @@
             border-bottom: 1px solid rgba(250, 204, 21, 0.2);
         }
 
+        /* أنيميشن تبديل النصوص (Slider) */
         #text-slider { display: inline-block; transition: all 0.5s ease; }
         .fade-out { opacity: 0; transform: translateY(-10px); }
         .fade-in { opacity: 1; transform: translateY(0); }
 
+        /* أنيميشن الـ 3D للأقسام */
         .category-card {
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(10px);
@@ -56,6 +59,7 @@
             box-shadow: 0 25px 50px rgba(0,0,0,0.5);
         }
 
+        /* زر اليوتيوب */
         .yt-btn {
             background: #ff0000;
             box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
@@ -72,7 +76,7 @@
             border: 2px dashed rgba(250, 204, 21, 0.2);
         }
 
-        /* ستايل شريط الإنجازات الجديد */
+        /* ستايل شريط الإحصائيات المضاف */
         .stat-item {
             background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%);
             border: 1px solid rgba(255,255,255,0.05);
@@ -104,9 +108,11 @@
                 <a href="#podcast" class="nav-link text-yellow-400/70 hover:text-yellow-400 transition-colors">بودكاست</a>
             </div>
 
-            <a href="https://www.youtube.com/@%D8%A8%D8%AA%D8%A7%D8%B9_%D8%AA%D8%B1%D8%AC%D9%85%D8%A9" target="_blank" 
+            <a href="https://www.youtube.com/@%D8%A8%D8%AA%D8%A7%D8%B9_%D8%AA%D8%B1%D8%AC%D9%85%D8%A9" 
+               target="_blank" 
                class="yt-btn px-8 py-3 rounded-full font-black text-xs text-white uppercase tracking-widest hover:scale-110 active:scale-95 transition-all shadow-lg flex items-center gap-2">
-                <i class="fab fa-youtube text-lg"></i> اشترك الآن
+                <i class="fab fa-youtube text-lg"></i>
+                اشترك الآن
             </a>
         </div>
     </nav>
@@ -119,7 +125,8 @@
                         مرحباً بك في عالم الاحتراف
                     </div>
                     <h1 class="text-6xl md:text-8xl font-black leading-tight italic">
-                        محمد <span class="text-yellow-400">عمر</span><br> بتاع ترجمة
+                        محمد <span class="text-yellow-400">عمر</span><br>
+                        بتاع ترجمة
                     </h1>
                     <p class="text-gray-400 text-xl max-w-xl md:ml-0 md:mr-0 mx-auto leading-relaxed">
                         هنا بنحول الشغف باللغات لمهنة حقيقية. بنعلمك الترجمة، إتقان اللغات، وإزاي تطور من نفسك عشان تقتحم سوق العمل بقوة.
@@ -138,27 +145,27 @@
             </div>
         </section>
 
-        <section class="py-12 px-6 max-w-7xl mx-auto -mt-10 mb-10">
+        <section class="py-12 px-6 max-w-7xl mx-auto -mt-10 mb-20">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="stat-item p-8 rounded-[35px] text-center group">
                     <i class="fab fa-youtube text-red-500 text-3xl mb-4 block group-hover:scale-125 transition-transform"></i>
                     <div class="text-3xl md:text-4xl font-black text-white mb-1">+100K</div>
-                    <div class="text-gray-500 text-[10px] font-bold uppercase tracking-widest">متابع على يوتيوب</div>
+                    <div class="text-gray-500 text-[10px] font-bold uppercase tracking-widest leading-relaxed">متابع على يوتيوب</div>
                 </div>
                 <div class="stat-item p-8 rounded-[35px] text-center group">
                     <i class="fas fa-video text-yellow-400 text-3xl mb-4 block group-hover:scale-125 transition-transform"></i>
                     <div class="text-3xl md:text-4xl font-black text-white mb-1">+250</div>
-                    <div class="text-gray-500 text-[10px] font-bold uppercase tracking-widest">فيديو تعليمي</div>
+                    <div class="text-gray-500 text-[10px] font-bold uppercase tracking-widest leading-relaxed">فيديو تعليمي</div>
                 </div>
                 <div class="stat-item p-8 rounded-[35px] text-center group">
                     <i class="fas fa-graduation-cap text-blue-400 text-3xl mb-4 block group-hover:scale-125 transition-transform"></i>
                     <div class="text-3xl md:text-4xl font-black text-white mb-1">+5000</div>
-                    <div class="text-gray-500 text-[10px] font-bold uppercase tracking-widest">ساعة تدريبية</div>
+                    <div class="text-gray-500 text-[10px] font-bold uppercase tracking-widest leading-relaxed">ساعة تدريبية</div>
                 </div>
                 <div class="stat-item p-8 rounded-[35px] text-center group">
                     <i class="fas fa-award text-green-400 text-3xl mb-4 block group-hover:scale-125 transition-transform"></i>
                     <div class="text-3xl md:text-4xl font-black text-white mb-1">10+</div>
-                    <div class="text-gray-500 text-[10px] font-bold uppercase tracking-widest">سنين خبرة</div>
+                    <div class="text-gray-500 text-[10px] font-bold uppercase tracking-widest leading-relaxed">سنين خبرة</div>
                 </div>
             </div>
         </section>
@@ -169,28 +176,39 @@
                     <i class="fas fa-language text-yellow-400 text-3xl group-hover:text-slate-900 transition-colors"></i>
                 </div>
                 <h3 class="text-2xl font-black mb-4">الترجمة</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">دليلك الشامل لدخول سوق العمل كـ Freelancer محترف.</p>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    دليلك الشامل لدخول سوق العمل، من الترجمة العامة للمتخصصة، وإزاي تتعامل مع العملاء كـ Freelancer محترف.
+                </p>
             </div>
+
             <div id="languages" class="category-card p-10 group">
                 <div class="w-16 h-16 bg-yellow-400/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors">
                     <i class="fas fa-globe text-yellow-400 text-3xl group-hover:text-slate-900 transition-colors"></i>
                 </div>
                 <h3 class="text-2xl font-black mb-4">تعلم اللغات</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">خطوات عملية لإتقان الإنجليزية والألمانية بالطلاقة.</p>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    خطوات عملية لإتقان الإنجليزية والألمانية. بنركز على الطلاقة والممارسة مش بس القواعد المعقدة.
+                </p>
             </div>
+
             <div id="self-dev" class="category-card p-10 group">
                 <div class="w-16 h-16 bg-yellow-400/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors">
                     <i class="fas fa-rocket text-yellow-400 text-3xl group-hover:text-slate-900 transition-colors"></i>
                 </div>
                 <h3 class="text-2xl font-black mb-4">تطوير الذات</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">إزاي تبني عادات ناجحة وتنظم وقتك لزيادة إنتاجيتك.</p>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    إزاي تبني عادات ناجحة، تنظم وقتك، وتزود إنتاجيتك عشان تقدر توفق بين الشغل والتعلم المستمر.
+                </p>
             </div>
+
             <div id="books" class="category-card p-10 group">
                 <div class="w-16 h-16 bg-yellow-400/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors">
                     <i class="fas fa-book-open text-yellow-400 text-3xl group-hover:text-slate-900 transition-colors"></i>
                 </div>
                 <h3 class="text-2xl font-black mb-4">خلاصة الكتب</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">بيديك "الزتونة" لأهم الكتب العالمية في فيديو أو مقال.</p>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    بقرأ لك أهم الكتب العالمية في التخصصات دي وبديك الزتونة في فيديو أو مقال يوفر عليك وقت القراءة.
+                </p>
             </div>
         </section>
 
@@ -199,22 +217,43 @@
                 <div class="relative">
                     <div class="absolute -top-10 -right-10 w-40 h-40 bg-yellow-400/10 blur-[80px] -z-10"></div>
                     <div class="space-y-2">
-                        <h2 class="text-5xl md:text-7xl font-black italic tracking-tighter uppercase">أهم <span class="text-yellow-400">الفيديوهات</span></h2>
+                        <h2 class="text-5xl md:text-7xl font-black italic tracking-tighter uppercase">
+                            أهم <span class="text-yellow-400 relative">
+                                الفيديوهات
+                                <svg class="absolute -bottom-2 left-0 w-full h-3 text-yellow-400/30" viewBox="0 0 100 10" preserveAspectRatio="none">
+                                    <path d="M0 5 Q 25 0 50 5 T 100 5" fill="none" stroke="currentColor" stroke-width="2" />
+                                </svg>
+                            </span>
+                        </h2>
                         <div class="flex items-center gap-4 mt-4 overflow-hidden">
                             <div class="h-[2px] w-20 bg-yellow-400"></div>
-                            <p class="text-xl md:text-2xl font-bold text-gray-400 italic">الخلاصة من قناة بتاع ترجمة</p>
+                            <p class="text-xl md:text-2xl font-bold text-gray-400 italic tracking-wide">
+                                الخلاصة من قناة <span class="text-white border-b border-white/20">بتاع ترجمة</span>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <a href="https://www.youtube.com/@%D8%A8%D8%AA%D8%A7%D8%B9_%D8%AA%D8%B1%D8%AC%D9%85%D8%A9" target="_blank" class="text-yellow-400 font-bold border-b-2 border-yellow-400 pb-1 hover:text-white transition-all mb-4">زيارة القناة كاملة <i class="fas fa-arrow-left mr-2"></i></a>
+                <a href="https://www.youtube.com/@%D8%A8%D8%AA%D8%A7%D8%B9_%D8%AA%D8%B1%D8%AC%D9%85%D8%A9" target="_blank" class="text-yellow-400 font-bold border-b-2 border-yellow-400 pb-1 hover:text-white hover:border-white transition-all mb-4">
+                    زيارة القناة كاملة <i class="fas fa-arrow-left mr-2"></i>
+                </a>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <div class="group">
                     <div class="relative aspect-video rounded-3xl overflow-hidden border border-white/5 group-hover:border-yellow-400 transition-all shadow-2xl">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/fD3hD_9vPms" frameborder="0" allowfullscreen></iframe>
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/fD3hD_9vPms" title="تعلم الترجمة من الصفر" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     <h4 class="mt-6 text-xl font-bold group-hover:text-yellow-400 transition-colors text-right">دليلك لبداية الترجمة من الصفر</h4>
+                    <p class="text-gray-500 text-sm mt-2 font-medium text-right">الخلاصة اللي هتحطك على أول الطريق المهني صح.</p>
+                </div>
+
+                <div class="group hidden md:block">
+                    <div class="relative aspect-video rounded-3xl overflow-hidden border border-white/5 group-hover:border-yellow-400 transition-all shadow-2xl bg-slate-900/50 flex items-center justify-center">
+                        <i class="fab fa-youtube text-6xl text-white/10 group-hover:text-red-600 transition-all"></i>
+                        <div class="absolute bottom-4 right-4 bg-yellow-400 text-slate-900 text-[10px] font-black px-3 py-1 rounded-lg italic uppercase">Coming Soon</div>
+                    </div>
+                    <h4 class="mt-6 text-xl font-bold opacity-50 text-right">أسرار العمل الحر (Freelance)</h4>
+                    <p class="text-gray-500 text-sm mt-2 font-medium text-right">جاري تجهيز محتوى حصري للموقع.</p>
                 </div>
             </div>
         </section>
@@ -222,38 +261,66 @@
         <section id="podcast" class="py-32 px-6 max-w-7xl mx-auto relative">
             <div class="absolute inset-0 bg-yellow-400/5 blur-[120px] rounded-full -z-10"></div>
             <div class="podcast-glass p-12 md:p-24 rounded-[50px] text-center backdrop-blur-xl border border-white/5 relative overflow-hidden group">
-                <i class="fas fa-microphone-alt text-yellow-400 text-5xl mb-8"></i>
-                <h2 class="text-5xl md:text-7xl font-black mb-6 italic text-white leading-tight">بودكاست <span class="text-yellow-400">بتاع ترجمة</span></h2>
-                <div class="text-2xl md:text-3xl font-bold text-yellow-400/80 animate-pulse uppercase tracking-[8px] mb-8">قريباً.. Coming Soon</div>
+                <div class="inline-block mb-8 p-6 bg-yellow-400/10 rounded-full group-hover:scale-110 transition-transform duration-500">
+                    <i class="fas fa-microphone-alt text-yellow-400 text-5xl"></i>
+                </div>
+                <h2 class="text-5xl md:text-7xl font-black mb-6 italic text-white leading-tight">
+                    بودكاست <span class="text-yellow-400">بتاع ترجمة </span>
+                </h2>
+                <div class="text-2xl md:text-3xl font-bold text-yellow-400/80 animate-pulse uppercase tracking-[8px] mb-8">
+                    قريباً.. Coming Soon
+                </div>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed mb-12">
+                    استعد لتجربة صوتية مختلفة تماماً.. هنحكي فيها عن خبايا سوق العمل، تجارب حياتية، وقصص نجاح بدأت من الصفر. متبعدش!
+                </p>
+                <a href="https://www.youtube.com/@%D8%A8%D8%AA%D8%A7%D8%B9_%D8%AA%D8%B1%D8%AC%D9%85%D8%A9" target="_blank" class="inline-flex items-center gap-3 bg-white/5 border border-white/10 text-white px-8 py-4 rounded-2xl font-bold hover:bg-red-600 transition-all group shadow-xl">
+                    <i class="fab fa-youtube text-red-500 group-hover:text-white text-2xl"></i>
+                    تابع التحديثات على يوتيوب
+                </a>
             </div>
         </section>
     </main>
 
     <footer class="py-20 border-t border-white/5 bg-slate-950/50 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <div class="text-3xl font-black italic mb-8 opacity-80 hover:opacity-100 transition-opacity">محمد عمر <span class="text-yellow-400">بتاع ترجمة</span></div>
-            <div class="flex justify-center gap-6 mb-12">
-                <a href="https://www.youtube.com/@%D8%A8%D8%AA%D8%A7%D8%B9_%D8%AA%D8%B1%D8%AC%D9%85%D8%A9" target="_blank" class="w-14 h-14 rounded-2xl border border-white/10 flex items-center justify-center hover:bg-[#ff0000] transition-all duration-500 group"><i class="fab fa-youtube text-2xl text-white/50 group-hover:text-white"></i></a>
-                <a href="https://www.facebook.com/mohamed.omar.816160" target="_blank" class="w-14 h-14 rounded-2xl border border-white/10 flex items-center justify-center hover:bg-[#1877f2] transition-all duration-500 group"><i class="fab fa-facebook-f text-2xl text-white/50 group-hover:text-white"></i></a>
+            <div class="text-3xl font-black italic mb-8 opacity-80 hover:opacity-100 transition-opacity">
+                محمد عمر <span class="text-yellow-400">بتاع ترجمة</span>
             </div>
-            <div class="text-gray-800 text-[10px] tracking-[5px] uppercase font-bold">MOHAMED OMAR HUB © 2026</div>
+            <div class="flex justify-center gap-6 mb-12">
+                <a href="https://www.youtube.com/@%D8%A8%D8%AA%D8%A7%D8%B9_%D8%AA%D8%B1%D8%AC%D9%85%D8%A9" target="_blank" class="w-14 h-14 rounded-2xl border border-white/10 flex items-center justify-center hover:bg-[#ff0000] hover:border-[#ff0000] transition-all duration-500 group shadow-lg">
+                    <i class="fab fa-youtube text-2xl text-white/50 group-hover:text-white"></i>
+                </a>
+                <a href="https://www.facebook.com/mohamed.omar.816160" target="_blank" class="w-14 h-14 rounded-2xl border border-white/10 flex items-center justify-center hover:bg-[#1877f2] hover:border-[#1877f2] transition-all duration-500 group shadow-lg">
+                    <i class="fab fa-facebook-f text-2xl text-white/50 group-hover:text-white"></i>
+                </a>
+            </div>
+            <p class="text-gray-500 text-sm mb-6 max-w-sm mx-auto leading-relaxed">
+                منصة متخصصة في نقل الخبرة العملية في الترجمة واللغات وتطوير الذات.. ابدأ رحلتك النهاردة.
+            </p>
+            <div class="text-gray-800 text-[10px] tracking-[5px] uppercase font-bold">
+                MOHAMED OMAR HUB © 2026 | ALL RIGHTS RESERVED
+            </div>
         </div>
     </footer>
 
     <script>
+        // برمجة الماوس
         const dot = document.getElementById('cursor-dot');
         const blur = document.getElementById('cursor-blur');
         window.addEventListener('mousemove', (e) => {
-            dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
+            dot.style.left = e.clientX + 'px';
+            dot.style.top = e.clientY + 'px';
             blur.animate({ left: e.clientX + 'px', top: e.clientY + 'px' }, { duration: 600, fill: "forwards" });
         });
 
+        // تغيير استايل الناف بار عند السكرول
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) navbar.classList.add('nav-active');
-            else navbar.classList.remove('nav-active');
+            if (window.scrollY > 80) { navbar.classList.add('nav-active'); }
+            else { navbar.classList.remove('nav-active'); }
         });
 
+        // سلايدر النصوص
         const words = ["ترجمة", "لغات", "تطوير ذات", "ملخصات كتب"];
         let index = 0;
         const sliderElement = document.getElementById('text-slider');
@@ -267,13 +334,19 @@
             }, 500);
         }, 3000);
 
+        // برمجة السكرول الناعم لروابط القائمة
         document.querySelectorAll('.nav-link, a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
                 if (href.startsWith('#')) {
                     e.preventDefault();
                     const target = document.querySelector(href);
-                    if (target) window.scrollTo({ top: target.offsetTop - 90, behavior: 'smooth' });
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 90,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             });
         });
