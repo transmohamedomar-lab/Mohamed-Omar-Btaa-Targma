@@ -11,9 +11,16 @@
     
     <style>
         :root { --gold: #facc15; --bg: #0f172a; }
+        
+        /* تعديل سلاسة الحركة ومسافة التوقف عند الأقسام */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px; 
+        }
+
         body { 
             font-family: 'Cairo', sans-serif; background: var(--bg); 
-            color: white; overflow-x: hidden; scroll-behavior: smooth;
+            color: white; overflow-x: hidden;
         }
 
         /* برمجة الماوس المزدوج */
@@ -86,12 +93,12 @@
             </div>
             
             <div class="hidden lg:flex gap-10 font-bold text-sm tracking-wide">
-                <a href="#hero" class="hover:text-yellow-400 transition-colors text-white">الرئيسية</a>
-                <a href="#translation" class="hover:text-yellow-400 transition-colors text-white">الترجمة</a>
-                <a href="#languages" class="hover:text-yellow-400 transition-colors text-white">اللغات</a>
-                <a href="#self-dev" class="hover:text-yellow-400 transition-colors text-white">تطوير الذات</a>
-                <a href="#books" class="hover:text-yellow-400 transition-colors text-white">ملخصات الكتب</a>
-                <a href="#podcast" class="text-yellow-400/70 hover:text-yellow-400 transition-colors">بودكاست</a>
+                <a href="#hero" class="nav-link hover:text-yellow-400 transition-colors text-white">الرئيسية</a>
+                <a href="#translation" class="nav-link hover:text-yellow-400 transition-colors text-white">الترجمة</a>
+                <a href="#languages" class="nav-link hover:text-yellow-400 transition-colors text-white">اللغات</a>
+                <a href="#self-dev" class="nav-link hover:text-yellow-400 transition-colors text-white">تطوير الذات</a>
+                <a href="#books" class="nav-link hover:text-yellow-400 transition-colors text-white">ملخصات الكتب</a>
+                <a href="#podcast" class="nav-link text-yellow-400/70 hover:text-yellow-400 transition-colors">بودكاست</a>
             </div>
 
             <a href="https://www.youtube.com/@%D8%A8%D8%AA%D8%A7%D8%B9_%D8%AA%D8%B1%D8%AC%D9%85%D8%A9" 
@@ -200,7 +207,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                
                 <div class="group">
                     <div class="relative aspect-video rounded-3xl overflow-hidden border border-white/5 group-hover:border-yellow-400 transition-all shadow-2xl">
                         <iframe class="w-full h-full" src="https://www.youtube.com/embed/fD3hD_9vPms" title="تعلم الترجمة من الصفر" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -266,6 +272,7 @@
     </footer>
 
     <script>
+        // برمجة الماوس
         const dot = document.getElementById('cursor-dot');
         const blur = document.getElementById('cursor-blur');
         window.addEventListener('mousemove', (e) => {
@@ -274,12 +281,14 @@
             blur.animate({ left: e.clientX + 'px', top: e.clientY + 'px' }, { duration: 600, fill: "forwards" });
         });
 
+        // تغيير استايل الناف بار عند السكرول
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 80) { navbar.classList.add('nav-active'); }
             else { navbar.classList.remove('nav-active'); }
         });
 
+        // سلايدر النصوص
         const words = ["ترجمة", "لغات", "تطوير ذات", "ملخصات كتب"];
         let index = 0;
         const sliderElement = document.getElementById('text-slider');
@@ -292,6 +301,23 @@
                 sliderElement.classList.add('fade-in');
             }, 500);
         }, 3000);
+
+        // برمجة السكرول الناعم لروابط القائمة
+        document.querySelectorAll('.nav-link, a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 90, // مسافة عشان الناف بار
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
