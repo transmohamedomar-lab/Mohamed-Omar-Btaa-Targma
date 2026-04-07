@@ -3,85 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بتاع ترجمة | محمد عمر - المرجع الأول للمترجمين</title>
+    <title>بتاع ترجمة | محمد عمر</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        :root { --main-gold: #facc15; --dark-bg: #0f172a; }
+        :root { --gold: #facc15; --bg: #0f172a; }
         body { 
-            font-family: 'Cairo', sans-serif; background: var(--dark-bg);
+            font-family: 'Cairo', sans-serif; background: var(--bg); 
             color: white; overflow-x: hidden; scroll-behavior: smooth;
         }
-        h1, h2, h3 { font-weight: 900 !important; }
 
-        /* الماوس الجمالي المتحرك (Glowing Dot) */
+        /* الماوس الذكي */
         #cursor-follower {
-            width: 30px; height: 30px; border: 2px solid rgba(250, 204, 21, 0.5);
+            width: 25px; height: 25px; border: 2px solid var(--gold);
             border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999;
             transition: transform 0.1s ease-out; transform: translate(-50%, -50%);
         }
 
-        /* ستايل الشريط الكبسولة الاحترافي */
+        /* نافبار كبسولة جلاسي */
         .nav-capsule {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 100px;
-        }
-
-        .nav-link { position: relative; transition: all 0.3s; }
-        .nav-link::after {
-            content: ''; position: absolute; width: 0; height: 2px;
-            bottom: -4px; right: 0; background-color: var(--main-gold);
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after { width: 100%; }
-
-        /* ستايل الزجاج الفخم (Glassmorphism) للكروت */
-        .glass-card {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 30px;
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+        }
+
+        /* كروت جلاسي */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 30px; transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
         .glass-card:hover {
-            transform: translateY(-10px) rotateX(5deg) rotateY(-2deg);
-            border-color: var(--main-gold);
+            transform: translateY(-10px); border-color: var(--gold);
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        /* أنيميشن الصورة المعزولة (3D Depth & Breaking Out) */
-        .hero-image-container {
-            perspective: 1000px;
+        /* أنيميشن الصورة 3D */
+        .tilt-container { perspective: 1000px; }
+        .hero-img {
+            transition: 0.6s ease; transform: rotateY(-12deg) rotateX(5deg);
+            filter: drop-shadow(0 20px 50px rgba(0,0,0,0.5));
         }
-        .main-hero-img {
-            transform: rotateY(-10deg) rotateX(5deg);
-            transition: transform 0.6s ease, box-shadow 0.6s ease;
-            box-shadow: -20px 20px 50px rgba(0,0,0,0.5);
-            pointer-events: none; /* عشان ما يقطعش على الماوس */
-        }
-        .hero-image-container:hover .main-hero-img {
-            transform: rotateY(0deg) rotateX(0deg) scale(1.02) translateZ(50px);
-            box-shadow: -30px 30px 70px rgba(0,0,0,0.6);
-        }
+        .tilt-container:hover .hero-img { transform: rotateY(0) rotateX(0) scale(1.05); }
 
-        /* هالة النيون المضيئة (Neon Glow) */
-        .neon-glow {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 140%; height: 140%;
-            background: radial-gradient(circle, rgba(250, 204, 21, 0.1) 0%, rgba(15, 23, 42, 0) 70%);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .gold-glow { text-shadow: 0 0 25px rgba(250, 204, 21, 0.4); }
+        .gold-glow { text-shadow: 0 0 20px rgba(250, 204, 21, 0.3); }
     </style>
 </head>
 <body>
@@ -89,47 +58,73 @@
     <div id="cursor-follower"></div>
 
     <nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-6xl z-50 nav-capsule px-8 py-3 flex justify-between items-center shadow-2xl">
-        <div class="text-2xl font-black italic tracking-tighter">بتاع <span class="text-yellow-400">ترجمة</span></div>
-        <div class="hidden lg:flex items-center space-x-reverse space-x-7 font-bold text-[14px]">
-            <a href="#" class="nav-link text-white">الرئيسية</a>
-            <a href="#languages" class="text-gray-400 hover:text-white transition">تعلم اللغات</a>
-            <a href="#translation" class="text-gray-400 hover:text-white transition">احترف الترجمة</a>
-            <a href="#freelance" class="text-gray-400 hover:text-white transition">العمل الحر</a>
-            <a href="#about" class="text-gray-400 hover:text-white transition">عن محمد</a>
+        <div class="text-2xl font-black italic">بتاع <span class="text-yellow-400">ترجمة</span></div>
+        <div class="hidden lg:flex space-x-reverse space-x-8 font-bold text-sm text-gray-300">
+            <a href="#" class="hover:text-white transition">الرئيسية</a>
+            <a href="#services" class="hover:text-white transition">الخدمات</a>
+            <a href="https://youtube.com/@Beta3Tarjama" target="_blank" class="hover:text-white transition">اليوتيوب</a>
         </div>
-        <a href="https://youtube.com/@Beta3Tarjama" target="_blank" class="bg-red-600 text-white px-5 py-2 rounded-full font-black text-xs hover:bg-red-500 shadow-lg transition-transform hover:scale-105 active:scale-95">SUBSCRIBE</a>
+        <button class="bg-yellow-400 text-indigo-950 px-6 py-2 rounded-full font-black text-xs hover:scale-105 transition shadow-lg">ابدأ الآن</button>
     </nav>
 
-    <header class="min-h-screen flex items-center pt-24 px-6 max-w-7xl mx-auto relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
-            
-            <div class="text-right space-y-8" data-aos="fade-left" data-aos-duration="1000">
-                <h1 class="text-6xl md:text-8xl font-black leading-tight tracking-tighter gold-glow">
+    <header class="min-h-screen flex items-center pt-24 px-6 max-w-7xl mx-auto relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-yellow-400/5 blur-[120px] rounded-full -z-10"></div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+            <div class="text-right space-y-8" data-aos="fade-left">
+                <h1 class="text-6xl md:text-8xl font-black leading-tight gold-glow">
                     عالمك في <br><span class="text-yellow-400">الترجمة</span>
                 </h1>
                 <p class="text-xl text-gray-400 font-medium leading-relaxed max-w-xl">
                     أنا محمد عمر، بساعدك تختصر سنين من التخبط عشان تبدأ طريقك في اللغات والترجمة والعمل الحر بأسلوب عملي ومجرب.
                 </p>
                 <div class="flex gap-4">
-                    <button class="bg-yellow-400 text-indigo-950 px-12 py-4 rounded-2xl font-black text-lg hover:shadow-[0_0_35px_rgba(250,204,21,0.5)] transition-all active:scale-95">ابدأ الآن</button>
-                    <button class="border border-white/10 bg-white/5 px-10 py-4 rounded-2xl font-black text-lg hover:bg-white/10 transition-all">تواصل معي</button>
+                    <a href="#services" class="bg-yellow-400 text-indigo-950 px-10 py-4 rounded-2xl font-black text-lg hover:shadow-[0_0_30px_rgba(250,204,21,0.4)] transition-all">استكشف الخدمات</a>
                 </div>
             </div>
 
-            <div class="hero-image-container flex justify-center lg:justify-end" data-aos="zoom-in" data-aos-duration="1200">
-                <div class="relative">
-                    <div class="neon-glow"></div>
-                    <img src="https://i.ibb.co/68Xm8d6G/mohamed-omar-studio.jpg" 
-                         alt="محمد عمر - بتاع ترجمة الاحترافي"
-                         class="main-hero-img w-full max-w-[500px] rounded-[2.5rem] relative z-10 border border-white/10 shadow-2xl">
-                </div>
+            <div class="tilt-container flex justify-center lg:justify-end" data-aos="zoom-in" data-aos-delay="200">
+                <img src="image_191a7e.jpg" 
+                     class="hero-img w-full max-w-[500px] rounded-[2rem] shadow-2xl relative z-10 border border-white/5"
+                     alt="محمد عمر">
             </div>
-
         </div>
     </header>
 
-    <section id="languages" class="max-w-7xl mx-auto py-20 px-6 grid grid-cols-1 md:grid-cols-3 gap-10 relative z-10">
-        <div class="glass-card p-10 card-hover" data-aos="fade-up">
-            <div class="text-yellow-400 text-4xl mb-6"><i class="fas fa-language"></i></div>
-            <h3 class="text-2xl font-black mb-4">تعلم اللغات</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">استراتيجيات "بتاع ترجم
+    <section id="services" class="max-w-7xl mx-auto py-32 px-6 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card p-10" data-aos="fade-up">
+                <div class="text-yellow-400 text-4xl mb-6"><i class="fas fa-language"></i></div>
+                <h3 class="text-2xl font-black mb-4">تعلم اللغات</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">خارطة طريق لتعلم الإنجليزية والألمانية من الصفر للطلاقة.</p>
+            </div>
+            <div class="glass-card p-10" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-yellow-400 text-4xl mb-6"><i class="fas fa-briefcase"></i></div>
+                <h3 class="text-2xl font-black mb-4">احتراف الترجمة</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">أسرار سوق العمل والتعامل مع الشركات العالمية والمحلية.</p>
+            </div>
+            <div class="glass-card p-10" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-yellow-400 text-4xl mb-6"><i class="fas fa-laptop-code"></i></div>
+                <h3 class="text-2xl font-black mb-4">العمل الحر</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">بناء بروفايل قوي على منصات الفريلانس واستلام الأرباح.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-gray-600 text-xs border-t border-white/5">
+        بتاع ترجمة © 2026 | تطوير محمد عمر
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // تشغيل الأنيميشن
+        AOS.init({ duration: 1000, once: true });
+        
+        // الماوس التفاعلي
+        const follower = document.getElementById('cursor-follower');
+        document.addEventListener('mousemove', (e) => {
+            follower.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+        });
+    </script>
+</body>
+</html>
