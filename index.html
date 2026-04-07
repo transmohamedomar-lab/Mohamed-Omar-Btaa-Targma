@@ -100,23 +100,31 @@
 
     <main>
         <section id="hero" class="min-h-screen flex items-center px-6 max-w-7xl mx-auto pt-20">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 w-full">
-                <div class="space-y-8">
-                    <h1 class="text-6xl md:text-8xl font-black leading-none">
-                        عالم <br> <span class="text-yellow-400">محمد عمر</span>
-                    </h1>
-                    <p class="text-xl text-gray-400 max-w-lg leading-relaxed">
-                        خبير الترجمة واللغات وتطوير الذات. منصة برمجية متكاملة تهدف لنقل الخبرة بأسلوب عصري.
-                    </p>
-                    <button class="bg-yellow-400 text-slate-900 px-12 py-4 rounded-2xl font-black text-lg hover:bg-yellow-300 transition-all">ابدأ الآن</button>
-                </div>
-                <div class="flex justify-center items-center relative">
-                    <div class="w-full aspect-square max-w-md bg-white/5 rounded-[40px] border border-white/10 overflow-hidden flex justify-center items-center">
-                        <img src="654788887_4194356117484230_3095840695810794515_n.jpg" class="w-full h-full object-cover">
-                    </div>
-                </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 w-full">
+        <div class="space-y-8">
+            <h1 class="text-6xl md:text-8xl font-black leading-[1.1]">
+                محمد عمر <br> <span class="text-yellow-400">بتاع ترجمة</span>
+            </h1>
+            <div class="space-y-4">
+                <p class="text-2xl font-bold text-white italic">
+                    أول منصة عربية متخصصة في:
+                </p>
+                <p class="text-xl text-gray-300 max-w-lg leading-relaxed border-r-4 border-yellow-400 pr-4">
+                    احتراف سوق الترجمة، إتقان اللغات، وتطوير العقلية الإنتاجية. بنقدم لك الخلاصة من واقع التجربة عشان تبدأ طريقك صح وتوصل للطلاقة والاحتراف.
+                </p>
             </div>
-        </section>
+            <div class="flex gap-4">
+                <button onclick="window.location.href='#translation'" class="bg-yellow-400 text-slate-900 px-12 py-4 rounded-2xl font-black text-lg hover:bg-yellow-300 transition-all shadow-[0_10px_20px_rgba(250,204,21,0.2)]">استكشف محتوايا</button>
+            </div>
+        </div>
+        <div class="flex justify-center items-center relative">
+            <div class="w-full aspect-square max-w-md bg-white/5 rounded-[40px] border border-white/10 overflow-hidden relative group">
+                <img src="654788887_4194356117484230_3095840695810794515_n.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"></div>
+            </div>
+        </div>
+    </div>
+</section>
 
         <section class="py-24 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div id="translation" class="category-card p-10">
