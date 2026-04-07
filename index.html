@@ -3,144 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بتاع ترجمة | محمد عمر - المرجع الأول للمترجمين</title>
+    <title>بتاع ترجمة | محمد عمر - المرجع الشامل</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* تطبيق خط Cairo وجعل الماوس الأصلي ظاهراً */
         body { 
             font-family: 'Cairo', sans-serif; 
             background: radial-gradient(circle at top right, #1e1b4b, #0f172a);
             color: white;
             min-height: 100vh;
-            cursor: default; /* الماوس الأصلي شغال */
+            scroll-behavior: smooth;
         }
 
-        /* العناوين Bold جداً كما طلبت */
-        h1, h2, h3 { font-weight: 900 !important; letter-spacing: -1px; }
+        h1, h2, h3 { font-weight: 900 !important; }
 
-        /* الدائرة الجمالية الخلفية (لا تعيق الحركة) */
+        /* الماوس الجمالي المتحرك */
         #cursor-follower {
             width: 35px; height: 35px; border: 2px solid rgba(250, 204, 21, 0.4);
             border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999;
             transition: transform 0.1s ease-out; transform: translate(-50%, -50%);
-            will-change: transform;
         }
 
-        /* ستايل الزجاج الاحترافي */
+        /* ستايل الزجاج (Glassmorphism) */
         .glass {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
+        /* أنيميشن الروابط في الشريط العلوي */
+        .nav-link { position: relative; transition: all 0.3s; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: -4px; right: 0; background-color: #facc15;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        /* كروت الأقسام */
+        .card-hover { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .card-hover:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.06); border-color: rgba(250, 204, 21, 0.3); }
+        
         .glass-icon {
-            width: 70px; height: 70px;
-            display: flex; align-items: center; justify-content: center;
+            width: 65px; height: 65px; display: flex; align-items: center; justify-content: center;
             border-radius: 20px; background: rgba(250, 204, 21, 0.05);
-            border: 1px solid rgba(250, 204, 21, 0.1);
-            font-size: 1.8rem; color: #facc15;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(250, 204, 21, 0.1); font-size: 1.6rem; color: #facc15;
+            transition: 0.3s;
         }
-
-        /* انيميشن عند الوقوف على البطاقات */
-        .card-hover:hover {
-            transform: translateY(-12px);
-            background: rgba(255, 255, 255, 0.07);
-            border-color: rgba(250, 204, 21, 0.3);
-        }
-        .card-hover:hover .glass-icon {
-            background: #facc15; color: #1e1b4b; transform: rotate(15deg) scale(1.1);
-        }
+        .card-hover:hover .glass-icon { background: #facc15; color: #1e1b4b; transform: rotate(10deg); }
     </style>
 </head>
 <body>
 
     <div id="cursor-follower"></div>
 
-    <nav class="glass sticky top-4 mx-4 md:mx-auto max-w-6xl rounded-[20px] z-50 px-8 py-4 mt-6 flex justify-between items-center">
-        <div class="text-2xl font-black text-white tracking-tighter">
-            <span class="text-yellow-400">بتاع</span> ترجمة
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50">
+        <div class="glass rounded-full px-8 py-3 flex justify-between items-center shadow-2xl">
+            <div class="text-2xl font-black">
+                <span class="text-yellow-400">بتاع</span> ترجمة
+            </div>
+            
+            <div class="hidden lg:flex items-center space-x-reverse space-x-7 font-bold text-[14px]">
+                <a href="#" class="nav-link text-white hover:text-yellow-400">الرئيسية</a>
+                <a href="#languages" class="nav-link text-gray-300 hover:text-yellow-400">تعلم اللغات</a>
+                <a href="#translation" class="nav-link text-gray-300 hover:text-yellow-400">احترف الترجمة</a>
+                <a href="#freelance" class="nav-link text-gray-300 hover:text-yellow-400">العمل الحر</a>
+                <a href="#blog" class="nav-link text-gray-300 hover:text-yellow-400">المدونة</a>
+                <a href="#about" class="nav-link text-gray-300 hover:text-white">عن محمد</a>
+            </div>
+
+            <a href="https://youtube.com/@Beta3Tarjama" target="_blank" class="bg-red-600 text-white px-5 py-2 rounded-full font-black text-xs hover:bg-red-500 transition-all shadow-lg">SUBSCRIBE</a>
         </div>
-        <div class="hidden lg:flex space-x-reverse space-x-10 font-bold text-sm">
-            <a href="#" class="hover:text-yellow-400 transition-colors">الرئيسية</a>
-            <a href="#languages" class="hover:text-yellow-400 transition-colors">اللغات</a>
-            <a href="#freelance" class="hover:text-yellow-400 transition-colors">العمل الحر</a>
-            <a href="#blog" class="hover:text-yellow-400 transition-colors">المدونة</a>
-        </div>
-        <a href="https://youtube.com/@Beta3Tarjama" target="_blank" class="bg-red-600 text-white px-6 py-2.5 rounded-xl font-black text-xs hover:bg-red-700 transition-all hover:scale-105 shadow-lg shadow-red-900/20">SUBSCRIBE</a>
     </nav>
 
-    <header class="py-24 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
-        <div class="md:w-3/5 text-right space-y-10">
-            <h1 class="text-6xl md:text-8xl leading-tight">
-                تعلم اللغة <br><span class="text-yellow-400">بذكاء</span>
-            </h1>
-            <p class="text-xl text-gray-400 leading-relaxed max-w-xl font-medium">
-                أنا محمد عمر، بقدم لك استراتيجيات مجربة لتعلم اللغات واحتراف الترجمة باستخدام أحدث أدوات الذكاء الاصطناعي.
-            </p>
-            <div class="flex gap-6">
-                <button class="bg-yellow-400 text-indigo-950 px-12 py-5 rounded-[20px] font-black text-lg hover:shadow-[0_0_30px_rgba(250,204,21,0.3)] transition-all">ابدأ الآن</button>
-                <button class="glass px-12 py-5 rounded-[20px] font-bold text-lg hover:bg-white/5 transition-all">المدونة</button>
+    <header class="pt-40 pb-20 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-3/5 text-right space-y-8">
+            <h1 class="text-6xl md:text-8xl leading-tight">عالمك في <br><span class="text-yellow-400 text-glow">الترجمة</span></h1>
+            <p class="text-xl text-gray-400 max-w-xl font-medium leading-relaxed">من "الكول سنتر" إلى احتراف العمل الحر واليوتيوب. هنا أشاركك الخلاصة لتختصر سنين من التخبط.</p>
+            <div class="flex gap-4">
+                <button class="bg-yellow-400 text-indigo-950 px-12 py-4 rounded-2xl font-black text-lg hover:shadow-2xl transition">ابدأ رحلتك</button>
             </div>
         </div>
-        <div class="md:w-2/5 flex justify-center">
-            <div class="relative group">
-                <div class="absolute inset-0 bg-yellow-400 blur-[80px] opacity-10 group-hover:opacity-20 transition duration-1000"></div>
-                <img src="https://i.ibb.co/VDPQf8N/my-photo.jpg" class="w-72 h-72 md:w-[420px] md:h-[420px] object-cover rounded-[40px] border-2 border-white/10 relative z-10 shadow-2xl transition duration-700 group-hover:scale-[1.03]">
-            </div>
+        <div class="md:w-2/5 relative">
+            <div class="absolute inset-0 bg-yellow-400 blur-[120px] opacity-10"></div>
+            <img src="https://i.ibb.co/VDPQf8N/my-photo.jpg" class="w-80 h-80 md:w-[450px] md:h-[450px] object-cover rounded-[3rem] border-2 border-white/10 relative z-10 shadow-2xl hover:scale-[1.02] transition duration-500">
         </div>
     </header>
 
-    <section id="languages" class="max-w-7xl mx-auto py-20 px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
+    <section class="max-w-7xl mx-auto py-20 px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         
-        <div class="glass p-10 rounded-[40px] card-hover transition-all cursor-pointer">
-            <div class="glass-icon mb-8"><i class="fas fa-globe-europe"></i></div>
-            <h3 class="text-3xl font-bold mb-5">تعلم اللغات</h3>
-            <p class="text-gray-400 leading-loose mb-8 font-medium">خطط عملية لتعلم الإنجليزية والألمانية من الصفر حتى الاحتراف في 90 يوماً.</p>
-            <span class="text-yellow-400 font-bold text-sm tracking-widest">عرض الدروس ←</span>
+        <div id="languages" class="glass p-10 rounded-[40px] card-hover">
+            <div class="glass-icon mb-6"><i class="fas fa-language"></i></div>
+            <h3 class="text-3xl mb-4 text-white">تعلم اللغات</h3>
+            <p class="text-gray-400 font-medium leading-relaxed mb-6">خطة الـ 90 يوم لتعلم الإنجليزية والألمانية بأسلوب عملي بعيداً عن التعقيد.</p>
+            <span class="text-yellow-400 font-bold text-sm">استكشف الخطط ←</span>
         </div>
 
-        <div class="glass p-10 rounded-[40px] card-hover transition-all cursor-pointer">
-            <div class="glass-icon mb-8"><i class="fas fa-briefcase"></i></div>
-            <h3 class="text-3xl font-bold mb-5">العمل الحر</h3>
-            <p class="text-gray-400 leading-loose mb-8 font-medium">كيف تقتنص أول فرصة عمل على Upwork وتتعامل مع العملاء كالمحترفين.</p>
-            <span class="text-yellow-400 font-bold text-sm tracking-widest">ابدأ رحلتك ←</span>
+        <div id="translation" class="glass p-10 rounded-[40px] card-hover">
+            <div class="glass-icon mb-6"><i class="fas fa-feather-alt"></i></div>
+            <h3 class="text-3xl mb-4 text-white">احترف الترجمة</h3>
+            <p class="text-gray-400 font-medium leading-relaxed mb-6">دروس تقنية في أنواع الترجمة، شرح الـ CAT Tools، وكيف تصبح مترجماً معتمداً.</p>
+            <span class="text-yellow-400 font-bold text-sm">تعلم التقنيات ←</span>
         </div>
 
-        <div class="glass p-10 rounded-[40px] card-hover transition-all cursor-pointer">
-            <div class="glass-icon mb-8"><i class="fas fa-microchip"></i></div>
-            <h3 class="text-3xl font-bold mb-5">تقنيات AI</h3>
-            <p class="text-gray-400 leading-loose mb-8 font-medium">أدوات الذكاء الاصطناعي التي تضاعف إنتاجيتك في الترجمة بنسبة 300%.</p>
-            <span class="text-yellow-400 font-bold text-sm tracking-widest">اكتشف الأدوات ←</span>
+        <div id="freelance" class="glass p-10 rounded-[40px] card-hover">
+            <div class="glass-icon mb-6"><i class="fas fa-dollar-sign"></i></div>
+            <h3 class="text-3xl mb-4 text-white">العمل الحر</h3>
+            <p class="text-gray-400 font-medium leading-relaxed mb-6">أسرار المنصات العالمية (Upwork/ProZ) وكيف تجذب العملاء وتحدد أسعارك.</p>
+            <span class="text-yellow-400 font-bold text-sm">ابدأ العمل ←</span>
+        </div>
+
+        <div id="blog" class="glass p-10 rounded-[40px] card-hover">
+            <div class="glass-icon mb-6"><i class="fas fa-blog"></i></div>
+            <h3 class="text-3xl mb-4 text-white">المدونة</h3>
+            <p class="text-gray-400 font-medium leading-relaxed mb-6">مقالات متعمقة في تطوير الذات، الإنتاجية، وأحدث أخبار سوق الترجمة العالمي.</p>
+            <span class="text-yellow-400 font-bold text-sm">اقرأ المقالات ←</span>
+        </div>
+
+        <div id="about" class="glass p-10 rounded-[40px] card-hover lg:col-span-2">
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="glass-icon"><i class="fas fa-user-tie"></i></div>
+                <div>
+                    <h3 class="text-3xl mb-2 text-white">عن محمد عمر</h3>
+                    <p class="text-gray-400 font-medium leading-relaxed">صانع محتوى تعليمي، ومترجم سابق بخبرة واسعة في إدارة المشاريع والعمل الحر. هدفي تمكين الشباب العربي من مهارات العصر.</p>
+                </div>
+            </div>
         </div>
 
     </section>
-
-    <footer class="glass mt-32 py-16 px-6 text-center rounded-t-[50px] border-b-0">
-        <div class="max-w-4xl mx-auto space-y-8">
-            <div class="text-4xl font-black">بتاع ترجمة <span class="text-yellow-400">.</span></div>
-            <div class="flex justify-center gap-12 text-3xl">
-                <a href="#" class="text-gray-500 hover:text-yellow-400 transition-all hover:scale-125"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="text-gray-500 hover:text-yellow-400 transition-all hover:scale-125"><i class="fab fa-youtube"></i></a>
-                <a href="#" class="text-gray-500 hover:text-yellow-400 transition-all hover:scale-125"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <p class="text-gray-500 font-medium text-sm">جميع الحقوق محفوظة © 2026 - تجربة رقمية من محمد عمر</p>
-        </div>
-    </footer>
-
-    <script>
-        const follower = document.getElementById('cursor-follower');
-        document.addEventListener('mousemove', (e) => {
-            // تحريك الدائرة بنعومة خلف الماوس الأصلي
-            follower.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
-        });
-    </script>
-</body>
-</html>
