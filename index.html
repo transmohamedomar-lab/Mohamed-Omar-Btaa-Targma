@@ -170,56 +170,116 @@
             </div>
         </section>
 
-       <section id="roadmap" class="py-32 px-6 bg-[#020617] relative overflow-hidden">
+       <section id="roadmap" class="py-24 px-6 bg-[#020617] relative overflow-hidden">
+    <style>
+        .step-card {
+            background: linear-gradient(145deg, #0f172a 0%, #020617 100%);
+            border: 1px solid rgba(255, 215, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .step-card:hover {
+            border-color: #ffcc00; /* الأصفر بتاعنا */
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 204, 0, 0.05);
+        }
+        .video-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.05);
+        }
+        .yt-btn {
+            background: #ff0000;
+            transition: all 0.3s ease;
+        }
+        .yt-btn:hover {
+            background: #cc0000;
+            transform: scale(1.05);
+        }
+        .level-badge {
+            background: rgba(255, 204, 0, 0.1);
+            color: #ffcc00;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+    </style>
+
     <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-20">
-            <h2 class="text-4xl md:text-6xl font-black text-white mb-6">خريطة <span class="text-red-600">طريقك</span> للاحتراف</h2>
-            <p class="text-gray-400 text-xl max-w-2xl mx-auto font-medium">اختر مرحلتك الحالية وشاهد الفيديو المخصص لك لتبدأ رحلتك فوراً</p>
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-6xl font-black text-white mb-4">خريطة <span class="text-[#ffcc00]">الاحتراف</span> 2026</h2>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">رحلة كاملة من الصفر حتى أول دولار، مبنية على خبرتي الشخصية وأنجح فيديوهات القناة.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-red-600/10 via-red-600 to-red-600/10 z-0"></div>
-
-            <div class="roadmap-step relative z-10 group">
-                <div class="bg-[#0f172a] p-8 rounded-[40px] border border-white/5 hover:border-red-600/50 transition-all duration-500 shadow-2xl">
-                    <div class="w-16 h-16 bg-red-600 text-white rounded-2xl flex items-center justify-center text-3xl font-black mb-6 group-hover:scale-110 transition-transform">01</div>
-                    <h3 class="text-2xl font-bold text-white mb-4">البداية من الصفر</h3>
-                    <p class="text-gray-400 mb-8 leading-relaxed">الخطة الذهبية لتعلم أي لغة في 90 يوم بدون كورسات مدفوعة.</p>
-                    <div class="aspect-video rounded-2xl overflow-hidden bg-black mb-6">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/QnDFG4qkJWw" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <a href="https://www.youtube.com/watch?v=QnDFG4qkJWw" target="_blank" class="block text-center py-4 bg-white/5 hover:bg-red-600 text-white rounded-xl font-bold transition-colors">شاهد على يوتيوب</a>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <div class="step-card p-8 rounded-[40px] relative">
+                <span class="level-badge mb-4 inline-block">LEVEL 01: THE FOUNDATION</span>
+                <h3 class="text-3xl font-black text-white mb-4">خطة الـ 90 يوم (تعلم أي لغة)</h3>
+                <p class="text-gray-400 mb-6 font-medium">الفيديو "العمدة" اللي شافوه أكتر من نص مليون شخص، بوابتك الحقيقية لتعلم الإنجليزية أو الألماني.</p>
+                
+                <div class="video-container aspect-video mb-6">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/QnDFG4qkJWw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
+                
+                <a href="https://www.youtube.com/watch?v=QnDFG4qkJWw" target="_blank" class="yt-btn w-full py-4 rounded-2xl text-white font-black flex items-center justify-center gap-3">
+                    <i class="fab fa-youtube"></i> شاهد الفيديو الأصلي
+                </a>
             </div>
 
-            <div class="roadmap-step relative z-10 group md:mt-12">
-                <div class="bg-[#0f172a] p-8 rounded-[40px] border border-white/5 hover:border-red-600/50 transition-all duration-500 shadow-2xl">
-                    <div class="w-16 h-16 bg-red-600 text-white rounded-2xl flex items-center justify-center text-3xl font-black mb-6 group-hover:scale-110 transition-transform">02</div>
-                    <h3 class="text-2xl font-bold text-white mb-4">إتقان الترجمة</h3>
-                    <p class="text-gray-400 mb-8 leading-relaxed">أسرار الترجمة والتحويل من مجرد هاوي إلى مترجم محترف.</p>
-                    <div class="aspect-video rounded-2xl overflow-hidden bg-black mb-6">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/videoseries?list=PL-x-Q2eYfJpXoY3I-pE9M2S2hF-p_3K-M" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <a href="https://www.youtube.com/@%D8%A8%D8%AA%D8%A7%D8%B9_%D8%AA%D8%B1%D8%AC%D9%85%D8%A9" target="_blank" class="block text-center py-4 bg-white/5 hover:bg-red-600 text-white rounded-xl font-bold transition-colors">قائمة التشغيل الكاملة</a>
+            <div class="step-card p-8 rounded-[40px] relative">
+                <span class="level-badge mb-4 inline-block" style="color: #ff4444; background: rgba(255, 68, 68, 0.1);">LEVEL 02: REALITY CHECK</span>
+                <h3 class="text-3xl font-black text-white mb-4">تجربتي الشخصية والمرتبات</h3>
+                <p class="text-gray-400 mb-6 font-medium">الحقيقة الصادمة عن سوق الترجمة، المميزات والعيوب، وإزاي تبدأ صح في 2026.</p>
+                
+                <div class="video-container aspect-video mb-6">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/DSW1GOOcdS0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
+                
+                <a href="https://www.youtube.com/watch?v=DSW1GOOcdS0" target="_blank" class="yt-btn w-full py-4 rounded-2xl text-white font-black flex items-center justify-center gap-3">
+                    <i class="fab fa-youtube"></i> شوف التفاصيل كاملة
+                </a>
             </div>
 
-            <div class="roadmap-step relative z-10 group">
-                <div class="bg-[#0f172a] p-8 rounded-[40px] border border-white/5 hover:border-red-600/50 transition-all duration-500 shadow-2xl">
-                    <div class="w-16 h-16 bg-red-600 text-white rounded-2xl flex items-center justify-center text-3xl font-black mb-6 group-hover:scale-110 transition-transform">03</div>
-                    <h3 class="text-2xl font-bold text-white mb-4">سوق العمل</h3>
-                    <p class="text-gray-400 mb-8 leading-relaxed">كيف تبدأ العمل الحر (Freelance) وتحقق أول دولار من مهاراتك.</p>
-                    <div class="aspect-video rounded-2xl overflow-hidden bg-black mb-6">
-                        <i class="fab fa-youtube text-5xl text-red-600/20 flex items-center justify-center h-full"></i>
-                    </div>
-                    <a href="https://www.youtube.com/@%D8%A8%D8%AA%D8%A7%D8%B9_%D8%AA%D8%B1%D8%AC%D9%85%D8%A9/videos" target="_blank" class="block text-center py-4 bg-red-600 text-white rounded-xl font-bold hover:bg-red-700 transition-colors shadow-lg shadow-red-600/20">ابدأ العمل الآن</a>
+            <div class="step-card p-8 rounded-[40px] relative">
+                <span class="level-badge mb-4 inline-block">LEVEL 03: THE INTERVIEW</span>
+                <h3 class="text-3xl font-black text-white mb-4">خطة القبول في أي وظيفة</h3>
+                <p class="text-gray-400 mb-6 font-medium">10 خطوات عملية عشان تعدي أي إنترفيو لغات بنجاح وتتفاوض على أحسن مرتب.</p>
+                
+                <div class="video-container aspect-video mb-6">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/U6vVGqoI2SU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
+                
+                <a href="https://www.youtube.com/watch?v=U6vVGqoI2SU" target="_blank" class="yt-btn w-full py-4 rounded-2xl text-white font-black flex items-center justify-center gap-3">
+                    <i class="fab fa-youtube"></i> اتعلم مهارات الإنترفيو
+                </a>
             </div>
+
+            <div class="step-card p-8 rounded-[40px] relative">
+                <span class="level-badge mb-4 inline-block" style="color: #00ff88; background: rgba(0, 255, 136, 0.1);">LEVEL 04: FREELANCE MASTERY</span>
+                <h3 class="text-3xl font-black text-white mb-4">أسرار الترجمة من المنزل</h3>
+                <p class="text-gray-400 mb-6 font-medium">10 أسرار للحصول على وظائف ترجمة أونلاين بسهولة وبدون خبرة سابقة كبيرة.</p>
+                
+                <div class="video-container aspect-video mb-6">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/XgPqXkzEXlI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <a href="https://www.youtube.com/watch?v=XgPqXkzEXlI" target="_blank" class="yt-btn w-full py-4 rounded-2xl text-white font-black flex items-center justify-center gap-3">
+                    <i class="fab fa-youtube"></i> ابدأ عملك الحر الآن
+                </a>
+            </div>
+
+        </div>
+
+        <div class="mt-20 text-center">
+            <a href="https://www.youtube.com/@%D8%A8%D8%AA%D8%A7%D8%B9_%D8%AA%D8%B1%D8%AC%D9%85%D8%A9" target="_blank" class="inline-flex items-center gap-4 bg-white text-black px-12 py-6 rounded-full font-black text-xl hover:bg-[#ffcc00] transition-all transform hover:scale-110 shadow-2xl">
+                اشترك في القناة لضمان وصول التحديثات 
+                <i class="fab fa-youtube text-red-600"></i>
+            </a>
         </div>
     </div>
-
-    <div class="absolute top-0 right-0 w-96 h-96 bg-red-600/5 blur-[120px] rounded-full"></div>
-    <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-600/5 blur-[120px] rounded-full"></div>
 </section>
 
         <section id="testimonials" class="py-24 px-6 bg-slate-900/40">
