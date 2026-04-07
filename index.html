@@ -17,14 +17,14 @@
         }
         h1, h2, h3 { font-weight: 900 !important; }
 
-        /* الماوس الجمالي */
+        /* الماوس الجمالي المتحرك */
         #cursor-follower {
             width: 35px; height: 35px; border: 2px solid rgba(250, 204, 21, 0.4);
             border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999;
             transition: transform 0.1s ease-out; transform: translate(-50%, -50%);
         }
 
-        /* ستايل الزجاج */
+        /* ستايل الزجاج الاحترافي (Glassmorphism) */
         .glass {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
@@ -39,6 +39,7 @@
         }
         .nav-link:hover::after { width: 100%; }
 
+        /* كروت الأقسام */
         .card-hover { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .card-hover:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.06); border-color: rgba(250, 204, 21, 0.3); }
         
@@ -49,11 +50,21 @@
             transition: 0.3s;
         }
         .card-hover:hover .glass-icon { background: #facc15; color: #1e1b4b; transform: rotate(10deg); }
+
+        /* تأثير العمق الثلاثي الأبعاد للصورة (3D Depth) */
+        .image-depth {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        .image-depth:hover img {
+            transform: translateZ(50px) rotateY(5deg);
+        }
     </style>
 </head>
 <body>
 
-    <div id="cursor-follower"></div>
+    <div id="custom-cursor"></div>
+    <div id="cursor-dot"></div>
 
     <nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50">
         <div class="glass rounded-full px-8 py-3 flex justify-between items-center shadow-2xl">
@@ -66,23 +77,26 @@
                 <a href="#blog" class="nav-link text-gray-300">المدونة</a>
                 <a href="#about" class="nav-link text-gray-300">عن محمد</a>
             </div>
-            <a href="https://youtube.com/@Beta3Tarjama" target="_blank" class="bg-red-600 text-white px-5 py-2 rounded-full font-black text-xs hover:bg-red-500 shadow-lg">SUBSCRIBE</a>
+            <a href="https://youtube.com/@Beta3Tarjama" target="_blank" class="bg-red-600 text-white px-5 py-2 rounded-full font-black text-xs hover:bg-red-500 shadow-lg SUBSCRIBE-target smooth-transition">SUBSCRIBE</a>
         </div>
     </nav>
 
     <header class="pt-40 pb-20 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
         <div class="md:w-3/5 text-right space-y-8">
-            <h1 class="text-6xl md:text-8xl leading-tight">عالمك في <br><span class="text-yellow-400">الترجمة</span></h1>
+            <h1 class="text-6xl md:text-8xl leading-tight hover-target smooth-transition tracking-tighter">عالمك في <br><span class="text-yellow-400">الترجمة</span></h1>
             <p class="text-xl text-gray-400 max-w-xl font-medium leading-relaxed">أنا محمد عمر، بقدم لك طريق مختصر وواضح عشان تتعلم لغة وتدخل مجال الترجمة وتحقق استقلال مادي.</p>
-            <button class="bg-yellow-400 text-indigo-950 px-12 py-4 rounded-2xl font-black text-lg hover:shadow-2xl transition">ابدأ الآن</button>
+            <button class="bg-yellow-400 text-indigo-950 px-12 py-4 rounded-2xl font-black text-lg hover:shadow-2xl hover-target smooth-transition transition shadow-glow-gold hover:shadow-glow-gold-lg">ابدأ رحلتك</button>
         </div>
-        <div class="md:w-2/5 flex justify-center">
-            <img src="https://i.ibb.co/VDPQf8N/my-photo.jpg" class="w-80 h-80 md:w-[420px] md:h-[420px] object-cover rounded-[3rem] border-2 border-white/10 shadow-2xl transition duration-500 hover:scale-105">
+        <div class="md:w-2/5 flex justify-center hover-target smooth-transition image-depth relative">
+            <div class="absolute inset-0 bg-yellow-400 blur-[120px] opacity-10"></div>
+            <img src="https://i.ibb.co/Xxd9pS8J/Beta3-Tarjama-Headshot.png" 
+                 alt="محمد عمر - بتاع ترجمة"
+                 class="w-72 h-72 md:w-[420px] md:h-[420px] object-cover rounded-[40px] border-2 border-white/10 shadow-2xl transition duration-700 hover:scale-[1.03] relative z-10">
         </div>
     </header>
 
     <section id="languages" class="max-w-7xl mx-auto py-16 px-6">
-        <div class="glass p-1 w-full rounded-[3rem] overflow-hidden border-yellow-400/20 border">
+        <div class="glass p-1 w-full rounded-[3rem] overflow-hidden border-yellow-400/20 border hover-target smooth-transition card-hover">
             <div class="flex flex-col md:flex-row items-center gap-10 p-8 md:p-12">
                 <div class="md:w-1/3 rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl">
                     <img src="https://images.unsplash.com/photo-1543167664-40d699fd436c?q=80&w=1000&auto=format&fit=crop" class="w-full h-64 object-cover">
@@ -91,39 +105,34 @@
                     <span class="bg-yellow-400 text-indigo-950 px-4 py-1 rounded-full text-xs font-black italic">دليل شامل</span>
                     <h2 class="text-4xl md:text-5xl font-black text-white leading-tight">خطة الـ 90 يوم لتعلم الإنجليزية</h2>
                     <p class="text-gray-400 text-lg leading-relaxed">السر في "المدخلات المفهومة". في هذا الدليل، أشرح لك كيف تبرمج عقلك على اللغة الجديدة باستخدام اليوتيوب والبودكاست فقط، بدون تعقيدات القواعد.</p>
-                    <button class="bg-white/10 hover:bg-yellow-400 hover:text-indigo-950 px-8 py-3 rounded-xl font-black transition-all border border-white/10 shadow-xl">اقرأ الخطة كاملة ←</button>
+                    <button class="bg-white/10 hover:bg-yellow-400 hover:text-indigo-950 px-8 py-3 rounded-xl font-black transition-all border border-white/10 shadow-xl hover-target smooth-transition">اقرأ الخطة كاملة ←</button>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="max-w-7xl mx-auto py-20 px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        
-        <div id="translation" class="glass p-10 rounded-[40px] card-hover">
+        <div id="translation" class="glass p-10 rounded-[40px] hover-target smooth-transition card-hover">
             <div class="glass-icon mb-6"><i class="fas fa-feather-alt"></i></div>
             <h3 class="text-3xl mb-4 text-white font-black">أدوات المترجم الذكي</h3>
             <p class="text-gray-400 font-medium leading-relaxed mb-6 italic">الـ CAT Tools هي سلاحك السري.</p>
-            <ul class="text-sm text-gray-500 space-y-2 mb-6">
+            <ul class="text-xs text-gray-500 space-y-2 mb-6">
                 <li>• شرح Trados & MemoQ</li>
                 <li>• دمج ChatGPT في الترجمة</li>
-                <li>• كيفية التدقيق اللغوي الاحترافي</li>
             </ul>
             <span class="text-yellow-400 font-bold text-sm">ابدأ التعلم الآن ←</span>
         </div>
-
-        <div id="freelance" class="glass p-10 rounded-[40px] card-hover">
+        <div id="freelance" class="glass p-10 rounded-[40px] hover-target smooth-transition card-hover">
             <div class="glass-icon mb-6"><i class="fas fa-dollar-sign"></i></div>
             <h3 class="text-3xl mb-4 text-white font-black">طريق الـ Freelance</h3>
             <p class="text-gray-400 font-medium leading-relaxed mb-6">من إنشاء بروفايل Upwork إلى استلام أرباحك في مصر.</p>
             <div class="flex flex-wrap gap-2 mb-6">
                 <span class="bg-indigo-900/50 px-3 py-1 rounded-md text-[10px] border border-white/10">Upwork</span>
                 <span class="bg-indigo-900/50 px-3 py-1 rounded-md text-[10px] border border-white/10">ProZ</span>
-                <span class="bg-indigo-900/50 px-3 py-1 rounded-md text-[10px] border border-white/10">Mostaql</span>
             </div>
             <span class="text-yellow-400 font-bold text-sm">دليل المبتدئين ←</span>
         </div>
-
-        <div id="blog" class="glass p-10 rounded-[40px] card-hover">
+        <div id="blog" class="glass p-10 rounded-[40px] hover-target smooth-transition card-hover">
             <div class="glass-icon mb-6"><i class="fas fa-blog"></i></div>
             <h3 class="text-3xl mb-4 text-white font-black">مقالات المدونة</h3>
             <p class="text-gray-400 font-medium leading-relaxed mb-6">أحدث المقالات عن تطوير الذات، والإنتاجية، وأسرار سوق العمل.</p>
@@ -131,35 +140,34 @@
         </div>
     </section>
 
-    <section id="about" class="max-w-7xl mx-auto py-20 px-6">
-        <div class="glass p-10 rounded-[40px] flex flex-col md:flex-row items-center gap-10 border-l-8 border-yellow-400">
-            <div class="glass-icon shrink-0"><i class="fas fa-user-tie"></i></div>
-            <div class="space-y-4">
-                <h3 class="text-3xl font-black text-white">من هو محمد عمر؟</h3>
-                <p class="text-gray-400 font-medium text-lg leading-relaxed">
-                    صانع محتوى تعليمي ومترجم متخصص. بدأت من الصفر في "كول سنتر"، وعرفت إزاي المهارات الصح ممكن تنقل أي شاب لمستوى مادي واجتماعي مختلف تماماً. هدفي هو تبسيط "الخلاصة" لكل شاب طموح.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="glass mt-20 py-16 px-6 text-center rounded-t-[50px]">
+    <footer class="glass mt-20 py-16 px-6 text-center rounded-t-[50px] border-b-0 hover-target smooth-transition">
         <div class="max-w-4xl mx-auto space-y-6">
-            <div class="text-3xl font-black">بتاع ترجمة <span class="text-yellow-400">.</span></div>
-            <p class="text-gray-500 font-medium">نساعدك لتصبح النسخة الأفضل من نفسك في سوق العمل العالمي.</p>
-            <div class="flex justify-center gap-10 text-2xl text-gray-500">
-                <a href="#" class="hover:text-yellow-400"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="hover:text-yellow-400"><i class="fab fa-youtube"></i></a>
-                <a href="#" class="hover:text-yellow-400"><i class="fab fa-linkedin"></i></a>
-            </div>
+            <div class="text-3xl font-black hover-target smooth-transition">بتاع ترجمة <span class="text-yellow-400">.</span></div>
             <p class="text-gray-600 text-[10px] pt-8">© 2026 جميع الحقوق محفوظة لـ محمد عمر - وبتاع ترجمة</p>
         </div>
     </footer>
 
     <script>
         const follower = document.getElementById('cursor-follower');
+        const customCursor = document.getElementById('custom-cursor');
+        const customDot = document.getElementById('cursor-dot');
+        const hoverTargets = document.querySelectorAll('.hover-target');
+
         document.addEventListener('mousemove', (e) => {
             follower.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+            customCursor.style.left = e.clientX + 'px';
+            customCursor.style.top = e.clientY + 'px';
+            customDot.style.left = e.clientX + 'px';
+            customDot.style.top = e.clientY + 'px';
+        });
+
+        hoverTargets.forEach(target => {
+            target.addEventListener('mouseenter', () => {
+                document.body.classList.add('custom-cursor-hover');
+            });
+            target.addEventListener('mouseleave', () => {
+                document.body.classList.remove('custom-cursor-hover');
+            });
         });
     </script>
 </body>
